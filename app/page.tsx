@@ -3,7 +3,7 @@ import { Canvas, useThree, useFrame } from "@react-three/fiber";
 import { Suspense, useState, useRef } from "react";
 import { OrbitControls, Html } from "@react-three/drei";
 import Solarsis from "./models/Solarsis";
-import { BillionStars } from "./models/billionStars";
+import { BillionStars } from "././models/billionStars";
 import * as THREE from "three";
 
 export default function Home() {

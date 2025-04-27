@@ -18,50 +18,5 @@
             "Android",
             "Jetpack Libraries"
         ]
-    },
-    {
-        "name": "SolarSim",
-        "description": "Machine learning model to explore planets.",
-        "link": "https://greatlionsglobal.com",
-        "tech": [
-            "Python",
-            "TensorFlow"
-        ]
-    },
-    {
-        "name": "AI Rover3",
-        "description": "Machine learning model to explore planets.",
-        "link": "https://greatlionsglobal.com",
-        "tech": [
-            "Python",
-            "TensorFlow"
-        ]
-    },
-    {
-        "name": "AI Rover4",
-        "description": "Machine learning model to explore planets.",
-        "link": "https://greatlionsglobal.com",
-        "tech": [
-            "Python",
-            "TensorFlow"
-        ]
-    },
-    {
-        "name": "AI Rover5",
-        "description": "Machine learning model to explore planets.",
-        "link": "https://greatlionsglobal.com",
-        "tech": [
-            "Python",
-            "TensorFlow"
-        ]
-    },
-    {
-        "name": "AI Rover6",
-        "description": "Machine learning model to explore planets.",
-        "link": "https://greatlionsglobal.com",
-        "tech": [
-            "Python",
-            "TensorFlow"
-        ]
     }
 ]

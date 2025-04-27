@@ -3,7 +3,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Html } from "@react-three/drei"; // fix: Html should come from drei not next/document
 import { Suspense, useState } from "react";
-import { BillionStars } from "../models/billionStars";
+import { BillionStars } from "../../models/billionStars";
 import HomeModel from "../components/HomeIcon3D";
 import ProjectStars from "../components/ProjectStars";
 import ProjectModal from "../components/ProjectModal";

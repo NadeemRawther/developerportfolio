@@ -2,7 +2,7 @@
 import { OrbitControls, Text } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Suspense, useRef, useMemo } from "react";
-import { BillionStars } from "../models/billionStars";
+import { BillionStars } from "../../models/billionStars";
 import * as THREE from "three";
 import HomeModel from "../components/HomeIcon3D"
 
@@ -135,7 +135,7 @@ export default function About() {
         <ambientLight intensity={1} />
         <directionalLight position={[5, 5, 5]} intensity={2} />
         <Suspense fallback={<Text position={[0, 0, 0]} fontSize={1}>Loading...</Text>}>
-        <HomeModel position={[-11, 7, 0]} scal/>
+          <HomeModel position={[-11, 7, 0]} scal />
           <BillionStars position={[0, 0, 0]} scale={50} />
           {boxes.map((box, index) => (
             <WobbleBox

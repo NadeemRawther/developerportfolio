@@ -3,7 +3,7 @@
 import { useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Html, Text } from '@react-three/drei';
-import { BillionStars } from '../models/billionStars';
+import { BillionStars } from '../../models/billionStars';
 import * as THREE from 'three';
 import HomeModel from '../components/HomeIcon3D';
 import emailjs from '@emailjs/browser'; // Import EmailJS

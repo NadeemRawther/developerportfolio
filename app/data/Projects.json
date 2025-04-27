@@ -1,0 +1,67 @@
+[
+    {
+        "name": "UniAthena",
+        "description": "The UniAthena Academic Course APP is your learning companion, designed to make managing your academic journey easier and more efficient. With a user-friendly interface,\n the app offers a range of features to help you stay organized and focused on your studies.",
+        "link": "https://play.google.com/store/apps/details?id=com.uniathena.academiccourseapp",
+        "tech": [
+            "Kotlin",
+            "Android",
+            "Jetpack Libraries"
+        ]
+    },
+    {
+        "name": "UniAthena Short Course",
+        "description": "UniAthena offers Free-learning Short Courses designed to help professionals, students, and job seekers gain practical skills and stay competitive in today’s job market.\n Wide Range of Topics: Choose from an array of diverse domains, including Health & Safety, Finance, Business, Technology, HR, and more.",
+        "link": "https://play.google.com/store/apps/details?id=com.uniathena",
+        "tech": [
+            "Kotlin",
+            "Android",
+            "Jetpack Libraries"
+        ]
+    },
+    {
+        "name": "SolarSim",
+        "description": "Machine learning model to explore planets.",
+        "link": "https://greatlionsglobal.com",
+        "tech": [
+            "Python",
+            "TensorFlow"
+        ]
+    },
+    {
+        "name": "AI Rover3",
+        "description": "Machine learning model to explore planets.",
+        "link": "https://greatlionsglobal.com",
+        "tech": [
+            "Python",
+            "TensorFlow"
+        ]
+    },
+    {
+        "name": "AI Rover4",
+        "description": "Machine learning model to explore planets.",
+        "link": "https://greatlionsglobal.com",
+        "tech": [
+            "Python",
+            "TensorFlow"
+        ]
+    },
+    {
+        "name": "AI Rover5",
+        "description": "Machine learning model to explore planets.",
+        "link": "https://greatlionsglobal.com",
+        "tech": [
+            "Python",
+            "TensorFlow"
+        ]
+    },
+    {
+        "name": "AI Rover6",
+        "description": "Machine learning model to explore planets.",
+        "link": "https://greatlionsglobal.com",
+        "tech": [
+            "Python",
+            "TensorFlow"
+        ]
+    }
+]

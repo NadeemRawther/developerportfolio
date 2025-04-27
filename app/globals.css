@@ -25,6 +25,7 @@ body {
     text-wrap: balance;
   }
 }
+
 .canvas-container {
   width: 100vw;
   height: 150vh;
@@ -35,3 +36,11 @@ body {
   height: 100%;
 }
 
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+}

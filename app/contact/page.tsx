@@ -12,9 +12,9 @@ import emailjs from '@emailjs/browser'; // Import EmailJS
 function ControlPanel({ position = [0, 0, 0] }) {
   const panelRef = useRef();
   const formRef = useRef();
-   // Add a ref for the form
+  // Add a ref for the form
   const { viewport } = useThree();
-  
+
   const scaleFactor = Math.min(viewport.width / 20, 1);
 
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });

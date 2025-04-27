@@ -76,10 +76,10 @@ function MagnifyingGlass({ mouse }) {
   return (
     <mesh ref={meshRef}>
       <circleGeometry args={[5, 74]} /> {/* Larger radius, smoother edges */}
-      <meshBasicMaterial 
-        map={renderTarget.current.texture} 
-        transparent={true} 
-        opacity={0.95} 
+      <meshBasicMaterial
+        map={renderTarget.current.texture}
+        transparent={true}
+        opacity={0.95}
         side={THREE.DoubleSide} // Visible from both sides
       />
     </mesh>

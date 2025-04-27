@@ -10,13 +10,13 @@ export default function Solarsis({ isRotating, ...props }) {
   const { nodes, materials, animations } = useGLTF('/model/solar.glb');
   const { actions } = useAnimations(animations, group);
   const router = useRouter();
-  
+
   const rotationState = useRef(0.9);
 
   useFrame(() => {
     if (group.current) {
       if (isRotating) {
-        rotationState.current += 0.004;
+        rotationState.current += 0.009;
         group.current.rotation.y = rotationState.current;
       } else {
         group.current.rotation.y = rotationState.current;
@@ -26,10 +26,10 @@ export default function Solarsis({ isRotating, ...props }) {
 
   // Adjusted positions with larger radius, accounting for model scale
   const quarters = [
-    { angle: 0, page: "/about", position: [120, 50, 0] ,color : '#A8F447'}, // Right (0 radians)
-    { angle: Math.PI / 2, page: "/contact", position: [0, 50, 120],color: '#FC5174' }, // Forward (π/2 radians)
-    { angle: Math.PI, page: "/projects", position: [-120, 50, 0] ,color:'#5CE2F1' }, // Left (π radians)
-    { angle: 3 * Math.PI / 2, page: "/experience", position: [0, 50, -120] ,color:'#A272F0' }, // Back (3π/2 radians)
+    { angle: 0, page: "/about", position: [120, 50, 0], color: '#A8F447' }, // Right (0 radians)
+    { angle: Math.PI / 2, page: "/contact", position: [0, 50, 120], color: '#FC5174' }, // Forward (π/2 radians)
+    { angle: Math.PI, page: "/projects", position: [-120, 50, 0], color: '#5CE2F1' }, // Left (π radians)
+    { angle: 3 * Math.PI / 2, page: "/experience", position: [0, 50, -120], color: '#A272F0' }, // Back (3π/2 radians)
   ];
 
   const handleButtonClick = (page) => {
@@ -169,7 +169,7 @@ export default function Solarsis({ isRotating, ...props }) {
                           position: 'relative',
                           zIndex: 2,
                           fontSize: '12px',
-                          fontWeight:'bold'
+                          fontWeight: 'bold'
                         }}
                       >
                         {getButtonText(quarter.angle)}

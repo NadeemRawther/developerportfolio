@@ -4,7 +4,7 @@ import React, { Suspense } from "react";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Html, Center } from "@react-three/drei";
-import { BillionStars } from "../../models/billionStars";
+import { BillionStars } from "../models/BillionStars";
 import HomeModel from "../components/HomeIcon3D";
 import { VerticalTimeline, VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";

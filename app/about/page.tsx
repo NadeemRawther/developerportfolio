@@ -2,7 +2,7 @@
 import { OrbitControls, Text } from "@react-three/drei";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { Suspense, useRef, useMemo } from "react";
-import { BillionStars } from "../../models/billionStars";
+import { BillionStars } from "../models/BillionStars";
 import * as THREE from "three";
 import HomeModel from "../components/HomeIcon3D"
 

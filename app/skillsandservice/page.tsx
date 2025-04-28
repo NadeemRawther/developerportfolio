@@ -3,7 +3,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Html } from "next/document";
 import { Suspense } from "react";
-import { BillionStars } from "../../models/billionStars";
+import { BillionStars } from "../models/BillionStars";
 import HomeModel from "../components/HomeIcon3D";
 export default function Page4() {
   return (

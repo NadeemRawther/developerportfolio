@@ -3,7 +3,7 @@ import { useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { Line } from "@react-three/drei";
-import projects from "../data/projects.json";
+import projects from "../../data/projects.json";
 
 // Generate non-overlapping positions
 const generatePositions = (count, minDistance = 6, bounds = { x: 16, y: 8, z: 16 }) => {

@@ -128,7 +128,7 @@ type InterstellarLineProps = {
 
 
 const InterstellarLine = ({ start, end, index }: InterstellarLineProps) => {
-    const lineRef = useRef<THREE.Mesh>(null);
+    const lineRef = useRef<THREE.Line>(null);
 
     useFrame(({ clock }) => {
         if (lineRef.current && (lineRef.current.material as THREE.Material)) {

@@ -132,7 +132,7 @@ const InterstellarLine = ({ start, end, index }: InterstellarLineProps) => {
 
     useFrame(({ clock }) => {
         if (lineRef.current && (lineRef.current.material as THREE.Material)) {
-            (lineRef.current.material as any).opacity =
+            (lineRef.current.material as THREE.Material).opacity =
                 0.3 + Math.sin(clock.getElapsedTime() + index) * 0.2;
         }
     });

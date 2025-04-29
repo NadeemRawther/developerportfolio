@@ -11,13 +11,14 @@ const generatePositions = (
     minDistance: number = 6,
     bounds: { x: number; y: number; z: number } = { x: 16, y: 8, z: 16 }
 ): THREE.Vector3[] => {
+
     const positions: THREE.Vector3[] = [];
     const attempts = 100;
 
     for (let i = 0; i < count; i++) {
         let valid = false;
         let attempt = 0;
-        let newPos: THREE.Vector3;
+        let newPos: THREE.Vector3 = new THREE.Vector3(); // ✅ initialize with a default
 
         while (!valid && attempt < attempts) {
             newPos = new THREE.Vector3(

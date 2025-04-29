@@ -58,7 +58,7 @@ type Project = {
 type StarProps = {
     position: THREE.Vector3;
     project: Project; // ❗ Ideally you should replace `any` with the correct project type later
-    onClick: () => void;
+    onClick: (project: Project) => void;
 };
 
 const Star = ({ position, project, onClick }: StarProps) => {
@@ -86,7 +86,10 @@ const Star = ({ position, project, onClick }: StarProps) => {
                 materialRef.current.emissive.set("cyan"); // Shift to cyan
                 setTimeout(() => {
                     setSparkle(0.8);
-                    materialRef.current.emissive.set("blue"); // Reset to blue
+                    if (materialRef.current) {
+                        materialRef.current.emissive.set("blue");
+                    }
+                    // Reset to blue
                 }, 400); // Longer duration
             }
 
@@ -119,9 +122,9 @@ const Star = ({ position, project, onClick }: StarProps) => {
 };
 
 const InterstellarLine = ({ start, end, index }) => {
-    const lineRef = useRef();
+    const lineRef = useRef<THREE.Line>(null);
     useFrame(({ clock }) => {
-        if (lineRef.current) {
+        if (lineRef.current && lineRef.current.material instanceof THREE.Material) {
             const t = clock.getElapsedTime();
             // Pulsing opacity for glowing effect
             lineRef.current.material.opacity = 0.3 + Math.sin(t + index) * 0.2;
@@ -147,7 +150,7 @@ const InterstellarLine = ({ start, end, index }) => {
     );
 };
 
-export default function ProjectStars({ onSelect }) {
+export default function ProjectStars({ onSelect }: { onSelect: (project: Project) => void }) {
     const positions = useMemo(() => generatePositions(projects.length), []);
 
     return (

@@ -6,8 +6,16 @@ import { BillionStars } from "../models/BillionStars";
 import * as THREE from "three";
 import HomeModel from "../components/HomeIcon3D"
 
+
+type WobbleBoxProps = {
+  position: [number, number, number];
+  size: [number, number, number];
+  text?: string;
+  url?: string;
+  isContentBox?: boolean;
+};
 // 3D Wobble Box Component
-function WobbleBox({ position, size, text, url, isContentBox = false }) {
+function WobbleBox({ position, size, text, url, isContentBox = false }: WobbleBoxProps) {
   const groupRef = useRef();
   const { viewport } = useThree(); // Get viewport dimensions
   const scaleFactor = Math.min(viewport.width / 20, 1); // Scale for mobile (base width ~20 units)
@@ -111,14 +119,8 @@ function WobbleBox({ position, size, text, url, isContentBox = false }) {
 }
 
 export default function About() {
-  const boxes = [
-    // About Me Box
-    {
-      position: [0, 4, 0],
-      size: [18, 10, 0.5],
-      isContentBox: true,
-    },
-    // Link Boxes
+  const boxes: WobbleBoxProps[] = [
+    { position: [0, 4, 0], size: [18, 10, 0.5], isContentBox: true },
     { position: [-6, -3, 0], size: [4, 2, 0.5], text: "GitHub", url: "https://github.com/NadeemRawther" },
     { position: [0, -3, 0], size: [4, 2, 0.5], text: "LinkedIn", url: "https://linkedin.com/in/nadeemrawther" },
     { position: [6, -3, 0], size: [4, 2, 0.5], text: "Stack Overflow", url: "https://stackoverflow.com/users/6634545/nadeem" },

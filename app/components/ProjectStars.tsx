@@ -120,14 +120,20 @@ const Star = ({ position, project, onClick }: StarProps) => {
         </mesh>
     );
 };
+type InterstellarLineProps = {
+    start: THREE.Vector3;
+    end: THREE.Vector3;
+    index: number;
+};
 
-const InterstellarLine = ({ start, end, index }) => {
-    const lineRef = useRef<THREE.Line>(null);
+
+const InterstellarLine = ({ start, end, index }: InterstellarLineProps) => {
+    const lineRef = useRef<THREE.Mesh>(null);
+
     useFrame(({ clock }) => {
-        if (lineRef.current && lineRef.current.material instanceof THREE.Material) {
-            const t = clock.getElapsedTime();
-            // Pulsing opacity for glowing effect
-            lineRef.current.material.opacity = 0.3 + Math.sin(t + index) * 0.2;
+        if (lineRef.current && (lineRef.current.material as any)) {
+            (lineRef.current.material as any).opacity =
+                0.3 + Math.sin(clock.getElapsedTime() + index) * 0.2;
         }
     });
 
@@ -144,12 +150,11 @@ const InterstellarLine = ({ start, end, index }) => {
             opacity={0.5}
             lineWidth={1}
             transparent
-            dashSize={0.5} // Dashed line for interstellar look
+            dashSize={0.5}
             gapSize={0.3}
         />
     );
 };
-
 export default function ProjectStars({ onSelect }: { onSelect: (project: Project) => void }) {
     const positions = useMemo(() => generatePositions(projects.length), []);
 

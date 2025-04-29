@@ -42,20 +42,22 @@ function WobbleBox({ position, size, text, url, isContentBox = false }: WobbleBo
     const ctx = canvas.getContext("2d");
 
     // Background
-    ctx.fillStyle = "rgba(152, 251, 180, 0.5)";
-    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+    if (ctx) {
+      ctx.fillStyle = "rgba(152, 251, 180, 0.5)";
+      ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
-    // Text styling
-    ctx.fillStyle = "black";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
+      // Text styling
+      ctx.fillStyle = "black";
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
 
-    // Title
-    ctx.font = `bold ${55 * scaleFactor}px Arial`;
-    ctx.fillText("About Me", canvasWidth / 2, 80 * scaleFactor);
+      // Title
+      ctx.font = `bold ${55 * scaleFactor}px Arial`;
+      ctx?.fillText("About Me", canvasWidth / 2, 80 * scaleFactor);
 
-    // Content
-    ctx.font = `${25 * scaleFactor}px Arial`;
+      // Content
+      ctx.font = `${25 * scaleFactor}px Arial`;
+    }
     const content = [
       "I’m Nadeem Rawther, an enthusiastic Android Developer with over seven years",
       "of experience crafting high-quality Android applications. My expertise lies",
@@ -72,7 +74,7 @@ function WobbleBox({ position, size, text, url, isContentBox = false }: WobbleBo
     ];
     const lineHeight = 30 * scaleFactor;
     content.forEach((line, index) => {
-      ctx.fillText(line, canvasWidth / 2, 120 * scaleFactor + index * lineHeight);
+      ctx?.fillText(line, canvasWidth / 2, 120 * scaleFactor + index * lineHeight);
     });
 
     return new THREE.CanvasTexture(canvas);
@@ -137,7 +139,7 @@ export default function About() {
         <ambientLight intensity={1} />
         <directionalLight position={[5, 5, 5]} intensity={2} />
         <Suspense fallback={<Text position={[0, 0, 0]} fontSize={1}>Loading...</Text>}>
-          <HomeModel position={[-11, 7, 0]} scal />
+          <HomeModel position={[-11, 7, 0]} />
           <BillionStars position={[0, 0, 0]} scale={50} />
           {boxes.map((box, index) => (
             <WobbleBox

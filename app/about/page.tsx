@@ -26,7 +26,7 @@ function WobbleBox({ position, size, text, url, isContentBox = false }: WobbleBo
     size[1] * scaleFactor,
     size[2] * scaleFactor,
   ];
-  const adjustedPosition = [
+  const adjustedPosition: [number, number, number] = [
     position[0] * scaleFactor,
     position[1] * scaleFactor,
     position[2],

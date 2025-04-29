@@ -4,7 +4,6 @@ import { useRef, useState } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Html, Text } from '@react-three/drei';
 import { BillionStars } from '../models/BillionStars';
-import * as THREE from 'three';
 import HomeModel from '../components/HomeIcon3D';
 import emailjs from '@emailjs/browser'; // Import EmailJS
 
@@ -105,7 +104,7 @@ function ControlPanel({ position = [0, 0, 0] }) {
 // Message Orb Component (unchanged)
 function MessageOrb({ active, position }) {
   const orbRef = useRef();
-  useFrame((state) => {
+  useFrame(() => {
     if (orbRef.current && active) {
       orbRef.current.position.z += 0.5; // Fly away
       if (orbRef.current.position.z > 20) orbRef.current.visible = false; // Hide when far
@@ -121,7 +120,7 @@ function MessageOrb({ active, position }) {
 }
 
 export default function Contact() {
-  const [messageLaunched, setMessageLaunched] = useState(false);
+  const [messageLaunched] = useState(false);
 
   return (
     <div className="w-screen h-screen relative">

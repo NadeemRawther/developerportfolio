@@ -21,7 +21,7 @@ function WobbleBox({ position, size, text, url, isContentBox = false }: WobbleBo
   const { viewport } = useThree(); // Get viewport dimensions
   const scaleFactor = Math.min(viewport.width / 20, 1); // Scale for mobile (base width ~20 units)
 
-  const adjustedSize = [
+  const adjustedSize: [number, number, number] = [
     size[0] * scaleFactor,
     size[1] * scaleFactor,
     size[2] * scaleFactor,

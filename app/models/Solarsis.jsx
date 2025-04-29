@@ -1,14 +1,12 @@
 "use client";
 import React, { useRef } from 'react';
-import { useGLTF, useAnimations, Html } from '@react-three/drei';
+import { useGLTF, Html } from '@react-three/drei';
 import { useFrame } from "@react-three/fiber";
 import { useRouter } from 'next/navigation';
-import { color } from 'three/tsl';
 
 export default function Solarsis({ isRotating, ...props }) {
   const group = useRef();
-  const { nodes, materials, animations } = useGLTF('/model/solar.glb');
-  const { actions } = useAnimations(animations, group);
+  const { nodes, materials } = useGLTF('/model/solar.glb');
   const router = useRouter();
 
   const rotationState = useRef(0.9);

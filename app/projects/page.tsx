@@ -7,7 +7,6 @@ import { BillionStars } from "../models/BillionStars";
 import HomeModel from "../components/HomeIcon3D";
 import ProjectStars from "../components/ProjectStars";
 import ProjectModal from "../components/ProjectModal";
-import { Stars } from '@react-three/drei';
 
 export default function Page4() {
   const [selectedProject, setSelectedProject] = useState(null);

@@ -48,9 +48,16 @@ const generatePositions = (
     return positions;
 };
 
+type Project = {
+    name: string;
+    description: string;
+    link: string;
+    tech: string[];
+};
+
 type StarProps = {
     position: THREE.Vector3;
-    project: any; // ❗ Ideally you should replace `any` with the correct project type later
+    project: Project; // ❗ Ideally you should replace `any` with the correct project type later
     onClick: () => void;
 };
 

@@ -6,14 +6,18 @@ import { Line } from "@react-three/drei";
 import projects from "../data/Projects.json";
 
 // Generate non-overlapping positions
-const generatePositions = (count, minDistance = 6, bounds = { x: 16, y: 8, z: 16 }) => {
-    const positions = [];
+const generatePositions = (
+    count: number,
+    minDistance: number = 6,
+    bounds: { x: number; y: number; z: number } = { x: 16, y: 8, z: 16 }
+): THREE.Vector3[] => {
+    const positions: THREE.Vector3[] = [];
     const attempts = 100;
 
     for (let i = 0; i < count; i++) {
         let valid = false;
         let attempt = 0;
-        let newPos;
+        let newPos: THREE.Vector3;
 
         while (!valid && attempt < attempts) {
             newPos = new THREE.Vector3(
@@ -28,7 +32,6 @@ const generatePositions = (count, minDistance = 6, bounds = { x: 16, y: 8, z: 16
         if (valid) {
             positions.push(newPos);
         } else {
-            // Fallback: Offset from last valid position or origin
             const lastPos = positions[positions.length - 1] || new THREE.Vector3(0, 5, 0);
             newPos = lastPos.clone().add(
                 new THREE.Vector3(
@@ -43,6 +46,7 @@ const generatePositions = (count, minDistance = 6, bounds = { x: 16, y: 8, z: 16
 
     return positions;
 };
+
 
 const Star = ({ position, project, onClick }) => {
     const [hovered, setHovered] = useState(false);

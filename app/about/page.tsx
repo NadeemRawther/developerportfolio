@@ -82,10 +82,10 @@ function WobbleBox({ position, size, text, url, isContentBox = false }: WobbleBo
 
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
-    groupRef.current?.rotation && (() => {
-      groupRef.current!.rotation.x = Math.sin(time) * 0.1;
-      groupRef.current!.rotation.y = Math.cos(time) * 0.1;
-    })();
+    if (groupRef.current?.rotation) {
+      groupRef.current.rotation.x = Math.sin(time) * 0.1;
+      groupRef.current.rotation.y = Math.cos(time) * 0.1;
+    }
   });
 
   return (

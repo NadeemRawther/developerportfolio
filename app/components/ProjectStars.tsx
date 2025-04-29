@@ -48,8 +48,13 @@ const generatePositions = (
     return positions;
 };
 
+type StarProps = {
+    position: THREE.Vector3;
+    project: any; // ❗ Ideally you should replace `any` with the correct project type later
+    onClick: () => void;
+};
 
-const Star = ({ position, project, onClick }) => {
+const Star = ({ position, project, onClick }: StarProps) => {
     const [hovered, setHovered] = useState(false);
     const meshRef = useRef<THREE.Mesh>(null);
     const materialRef = useRef<THREE.MeshStandardMaterial>(null);

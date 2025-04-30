@@ -4,7 +4,7 @@ import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { Line } from "@react-three/drei";
 import projects from "../data/Projects.json";
-import { Line2 } from "three/examples/jsm/lines/webgpu/Line2.js";
+import { Line2 } from 'three-stdlib';
 
 // Generate non-overlapping positions
 const generatePositions = (

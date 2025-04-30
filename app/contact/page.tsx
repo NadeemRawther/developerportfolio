@@ -5,42 +5,46 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { OrbitControls, Html, Text } from '@react-three/drei';
 import { BillionStars } from '../models/BillionStars';
 import HomeModel from '../components/HomeIcon3D';
-import emailjs from '@emailjs/browser'; // Import EmailJS
+import emailjs from '@emailjs/browser';
+import * as THREE from 'three';
+
+type Vec3 = [number, number, number];
 
 // Floating Control Panel Component
-function ControlPanel({ position = [0, 0, 0] }) {
-  const panelRef = useRef();
-  const formRef = useRef();
-  // Add a ref for the form
+function ControlPanel({ position }: { position: Vec3 }) {
+  const panelRef = useRef<THREE.Group>(null!);
+  const formRef = useRef<HTMLFormElement>(null);
   const { viewport } = useThree();
 
   const scaleFactor = Math.min(viewport.width / 20, 1);
-
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [launched, setLaunched] = useState(false);
 
   useFrame((state) => {
-    panelRef.current.rotation.y = Math.sin(state.clock.getElapsedTime()) * 0.1; // Wobble effect
+    if (panelRef.current) {
+      panelRef.current.rotation.y = Math.sin(state.clock.getElapsedTime()) * 0.1;
+    }
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setLaunched(true);
 
-    // Send email using EmailJS
+    if (!formRef.current) return;
+
     emailjs
       .sendForm(
-        'service_je50ijr', // Replace with your Service ID
-        'template_76ivg9o', // Replace with your Template ID
-        formRef.current, // Reference to the form
-        'eiwr-gOKkBnzpbQmC' // Replace with your Public Key
+        'service_je50ijr',
+        'template_76ivg9o',
+        formRef.current,
+        'eiwr-gOKkBnzpbQmC'
       )
       .then(
         (result) => {
           console.log('Email sent successfully!', result.text);
           setTimeout(() => {
             setLaunched(false);
-            setFormData({ name: '', email: '', message: '' }); // Reset form
+            setFormData({ name: '', email: '', message: '' });
           }, 2000);
         },
         (error) => {
@@ -52,17 +56,15 @@ function ControlPanel({ position = [0, 0, 0] }) {
 
   return (
     <group ref={panelRef} position={position}>
-      {/* Panel Base */}
       <mesh>
         <boxGeometry args={[10 * scaleFactor, 6 * scaleFactor, 0.2]} />
         <meshStandardMaterial color="#1e90ff" opacity={0.8} transparent />
       </mesh>
-      {/* Form as HTML Overlay */}
       <Html center>
         <form ref={formRef} onSubmit={handleSubmit} className="flex flex-col gap-2 p-4 text-black">
           <input
             type="text"
-            name="name" // Must match template variable
+            name="name"
             placeholder="Name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -71,7 +73,7 @@ function ControlPanel({ position = [0, 0, 0] }) {
           />
           <input
             type="email"
-            name="email" // Must match template variable
+            name="email"
             placeholder="Email"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -79,7 +81,7 @@ function ControlPanel({ position = [0, 0, 0] }) {
             required
           />
           <textarea
-            name="message" // Must match template variable
+            name="message"
             placeholder="Your Message"
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -91,7 +93,7 @@ function ControlPanel({ position = [0, 0, 0] }) {
           </button>
         </form>
       </Html>
-      {/* Success Message */}
+
       {launched && (
         <Text position={[0, 4 * scaleFactor, 0.5]} fontSize={0.5 * scaleFactor} color="white">
           Message Launched Successfully!
@@ -101,13 +103,16 @@ function ControlPanel({ position = [0, 0, 0] }) {
   );
 }
 
-// Message Orb Component (unchanged)
-function MessageOrb({ active, position }) {
-  const orbRef = useRef();
+// Message Orb Component
+function MessageOrb({ active, position }: { active: boolean; position: Vec3 }) {
+  const orbRef = useRef<THREE.Mesh>(null);
+
   useFrame(() => {
     if (orbRef.current && active) {
-      orbRef.current.position.z += 0.5; // Fly away
-      if (orbRef.current.position.z > 20) orbRef.current.visible = false; // Hide when far
+      orbRef.current.position.z += 0.5;
+      if (orbRef.current.position.z > 20) {
+        orbRef.current.visible = false;
+      }
     }
   });
 
@@ -119,6 +124,7 @@ function MessageOrb({ active, position }) {
   );
 }
 
+// Main Contact Component
 export default function Contact() {
   const [messageLaunched] = useState(false);
 

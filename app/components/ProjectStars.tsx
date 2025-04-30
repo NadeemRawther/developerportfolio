@@ -4,6 +4,7 @@ import * as THREE from "three";
 import { useFrame } from "@react-three/fiber";
 import { Line } from "@react-three/drei";
 import projects from "../data/Projects.json";
+import { Line2 } from "three/examples/jsm/lines/webgpu/Line2.js";
 
 // Generate non-overlapping positions
 const generatePositions = (
@@ -128,7 +129,7 @@ type InterstellarLineProps = {
 
 
 const InterstellarLine = ({ start, end, index }: InterstellarLineProps) => {
-    const lineRef = useRef<THREE.Line>(null);
+    const lineRef = useRef<Line2>(null);
 
     useFrame(({ clock }) => {
         if (lineRef.current && (lineRef.current.material as THREE.Material)) {

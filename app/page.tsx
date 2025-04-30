@@ -1,5 +1,5 @@
 "use client";
-import { Canvas, ThreeElements } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import { Suspense, useState, useRef } from "react";
 import { OrbitControls, Html } from "@react-three/drei";
 import Solarsis from "./models/Solarsis";
